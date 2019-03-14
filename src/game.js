@@ -6,8 +6,7 @@ class Game{
     this.obstacles = [];
     this.player = [];
     this.coins = [];
-
-    this.addplayer();
+    
   }
 
 
@@ -32,7 +31,7 @@ class Game{
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
     ctx.fillStyle = Game.BG_COLOR;
-    ctx.fillRect(500, 200, Game.DIM_X, Game.DIM_Y);
+    ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
     this.player[0].draw(ctx);
   }
 }
