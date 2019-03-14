@@ -8,6 +8,7 @@ class GameView {
   bindKeyHandlers(){
     const player = this.player;
     
+
     Object.keys(GameView.MOVES).forEach(k => {
       const move = GameView.MOVES[k];
       key(k, () => player.power(move));

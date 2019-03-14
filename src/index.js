@@ -16,12 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
   //   vel: [10, 10],
   //   color: "#565151"
   // });
+
+  
       
   const game = new Game();
   // game.draw(ctx);
   new GameView(game, ctx).start();
       
-
   // startLoop();
 });
 

@@ -50,7 +50,7 @@ class Game{
 Game.BG_COLOR = "#43b9e0";
 Game.DIM_X = 500;
 Game.DIM_Y = 900;
-Game.FPS = 60;
+Game.FPS = 100;
 
 
 module.exports = Game;

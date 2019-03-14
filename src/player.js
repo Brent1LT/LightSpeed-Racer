@@ -6,6 +6,7 @@ class Player extends MovingObject {
   }
 
   power(move){
+    if((this.pos[0] + move[0] < 0) || (this.pos[0] + move[0] > 465)) return null;
     this.pos[0] += move[0];
     this.pos[1] += move[1];
   }
