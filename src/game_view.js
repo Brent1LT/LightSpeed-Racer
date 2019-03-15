@@ -23,8 +23,8 @@ class GameView {
 
   animate(time){
     const timeDelta = time - this.lastTime;
-
-    this.game.step(timeDelta);
+    this.game.generateObstacles();
+    this.game.step();
     this.game.draw(this.ctx);
     this.lastTime = time;
 
@@ -34,8 +34,8 @@ class GameView {
 
 
 GameView.MOVES = {
-  a: [-20, 0],
-  d: [20, 0]
+  a: [-30, 0],
+  d: [30, 0]
 };
 
 module.exports = GameView;

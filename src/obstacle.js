@@ -5,6 +5,10 @@ class Obstacle extends MovingObject {
     super(options);
   }
 
+  move(x){
+    this.pos[1] += x;
+  }
+
   draw(ctx){
     ctx.fillStyle = this.color;
     for (let i = 0; i < 8; i++) {

@@ -10,17 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.height = Game.DIM_Y;
   const ctx = canvas.getContext('2d');
   
-
-  // const obstacle = new Obstacle({
-  //   pos: [100, 100],
-  //   vel: [10, 10],
-  //   color: "#565151"
-  // });
-
-  
       
   const game = new Game();
-  // game.draw(ctx);
   new GameView(game, ctx).start();
       
   // startLoop();
