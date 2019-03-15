@@ -1,5 +1,6 @@
 const Player = require('./player');
 const Obstacle = require('./obstacle');
+const Coin = require('./coin');
 
 class Game{
   constructor(){
@@ -7,7 +8,7 @@ class Game{
     this.player = null;
     this.coins = [];
 
-    this.coinCount = 0;
+    this.coinCount = 15;
   }
 
 
@@ -17,6 +18,9 @@ class Game{
     }else if(object instanceof Obstacle){
       this.obstacles.push(object);
       // console.log(this.obstacles);
+    }else if(object instanceof Coin){
+      this.coins.push(object);
+      console.log(this.coins);
     }
   }
 
@@ -26,7 +30,7 @@ class Game{
 
   addPlayer(){
     const player = new Player({
-      pos: [225, 800],
+      pos: [250, 800],
       vel: [10, 10],
       color: "rgb(0, 0, 0)"
     });
@@ -60,9 +64,24 @@ class Game{
     }
   }
 
-  generateObstacles(){
+  createCoin(){
+    let coin = new Coin({
+      pos: [Math.random() * (Game.DIM_X - 40),
+        0 - Math.random() * Game.DIM_Y
+      ],
+      vel: [10, 10],
+      color: "#f7e307"
+    });
+    this.add(coin);
+  }
+
+  generateItems(){
     if(Math.random() > 0.995){
       this.createObstacles();
+    }
+
+    if(Math.random() > 0.995){
+      this.createCoin();
     }
   }
 
@@ -91,15 +110,16 @@ class Game{
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
     ctx.fillStyle = Game.BG_COLOR;
     ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
-    this.obstacles.forEach(el => {
+    this.allObjects().forEach(el => {
       el.draw(ctx);
     });
+    
     this.player.draw(ctx);
   }
 }
 
 Game.BG_COLOR = "#43b9e0";
-Game.DIM_X = 500;
+Game.DIM_X = 600;
 Game.DIM_Y = 900;
 Game.FPS = 100;
 

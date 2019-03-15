@@ -1,16 +1,17 @@
 const MovingObject = require('./moving_object');
 const Obstacle = require('./obstacle');
+const Coin = require('./coin');
 
 class Player extends MovingObject {
   constructor(options) {
     super(options);
 
     this.height = 32;
-    this.width = 32;
+    this.width = 40;
   }
 
   power(move){
-    if((this.pos[0] + move[0] < 0) || (this.pos[0] + move[0] > 465)) return null;
+    if((this.pos[0] + move[0] < 0) || (this.pos[0] + move[0] > 560)) return null;
     this.pos[0] += move[0];
     this.pos[1] += move[1];
   }
@@ -18,7 +19,11 @@ class Player extends MovingObject {
   isCollidedWith(object){
     if(object instanceof Obstacle){
       console.log('collision');
+    } else if(object instanceof Coin){
+      console.log('collect coin');
     }
+
+    // move this method in the game class
   }
 
   draw(ctx){

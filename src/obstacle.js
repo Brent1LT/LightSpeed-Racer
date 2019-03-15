@@ -4,7 +4,7 @@ class Obstacle extends MovingObject {
   constructor(options){
     super(options);
     this.height = 28;
-    this.width = 32;
+    this.width = 40;
   }
 
   move(x){
