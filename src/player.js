@@ -8,6 +8,7 @@ class Player extends MovingObject {
 
     this.height = 32;
     this.width = 40;
+    this.tick = 0;
   }
 
   power(move){
@@ -16,18 +17,27 @@ class Player extends MovingObject {
     this.pos[1] += move[1];
   }
 
-  // isCollidedWith(object){
-  //   if(object instanceof Obstacle){
-  //     console.log('collision');
-  //   } else if(object instanceof Coin){
-  //     console.log('collect coin');
-  //   }
-
-  //   // move this method in the game class
-  // }
 
   draw(ctx){
+
+    //wheels
+    if(this.tick > 5){
+      ctx.fillStyle = "#f20cdf";
+      this.tick = 0;
+    }else{
+      ctx.fillStyle = this.color;
+    }
+    //front wheels
+    ctx.fillRect(this.pos[0] + 30, this.pos[1] + 10, 8, 8);
+    ctx.fillRect(this.pos[0], this.pos[1] + 10, 8, 8);
+        
+    //rear wheels
+    ctx.fillRect(this.pos[0], this.pos[1] + 30, 8, 8);
+    ctx.fillRect(this.pos[0] + 30, this.pos[1] + 30, 8, 8);
+
+    //car body
     ctx.fillStyle = this.color;
+    this.tick += 1;
     ctx.beginPath();
 
     for(let i = 0; i < 2; i++){
@@ -35,7 +45,7 @@ class Player extends MovingObject {
     }
 
 
-    for(let i = 0; i < 4; i++){
+    for(let i = 1; i < 3; i++){
       ctx.fillRect(this.pos[0] + i * 10, this.pos[1] + 10, 8, 8);
     }
 
@@ -45,7 +55,7 @@ class Player extends MovingObject {
     }
 
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 1; i < 3; i++) {
       ctx.fillRect(this.pos[0] + i * 10, this.pos[1] + 30, 8, 8);
     }
 

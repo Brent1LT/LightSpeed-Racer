@@ -11,11 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvas.getContext('2d');
 
   let audio = document.getElementById('audio');
+  let mute = document.getElementById('mute');
+  let muted = false;
   
-      
+  
+  mute.addEventListener('click', () => {
+    if(muted){
+      audio.play();
+      muted = false;
+    }else{
+      audio.pause();
+      muted = true;
+    }
+  });
+
   const game = new Game();
   let lightspeed = new GameView(game, ctx);
   lightspeed.start();
+
 
   window.addEventListener("keypress", (e) => {
     if (e.charCode === 13) {
@@ -26,15 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
       
-  // startLoop();
 });
 
-// function startLoop() {
-//   update();
-// }
-
-// function update() {
-//   requestAnimationFrame(update)
-//   console.log("update");
-// }
 
