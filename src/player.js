@@ -16,15 +16,15 @@ class Player extends MovingObject {
     this.pos[1] += move[1];
   }
 
-  isCollidedWith(object){
-    if(object instanceof Obstacle){
-      console.log('collision');
-    } else if(object instanceof Coin){
-      console.log('collect coin');
-    }
+  // isCollidedWith(object){
+  //   if(object instanceof Obstacle){
+  //     console.log('collision');
+  //   } else if(object instanceof Coin){
+  //     console.log('collect coin');
+  //   }
 
-    // move this method in the game class
-  }
+  //   // move this method in the game class
+  // }
 
   draw(ctx){
     ctx.fillStyle = this.color;

@@ -101,10 +101,23 @@ class Game{
         ((player.pos[0] + player.width) < b.pos[0]) ||
         (player.pos[0] > (b.pos[0] + b.width))
       )){
-        player.isCollidedWith(b);
+        this.isCollidedWith(player, b);
       }
     }
   }
+
+  isCollidedWith(player, object){
+    if (object instanceof Obstacle) {
+      console.log('collision');
+    } else if (object instanceof Coin) {
+      console.log('collect coin');
+      this.removeCoin(object);
+    }
+  }
+
+  removeCoin(object){
+    this.coins.splice(this.coins.indexOf(object), 1);
+  }  
 
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
