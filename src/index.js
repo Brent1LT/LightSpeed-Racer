@@ -12,7 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
   
       
   const game = new Game();
-  new GameView(game, ctx).start();
+  let lightspeed = new GameView(game, ctx);
+  lightspeed.start()
+
+  window.addEventListener("keypress", (e) => {
+    if (e.charCode === 13) {
+      console.log(lightspeed)
+      lightspeed.pause();
+      console.log('paused');
+    }
+  });
       
   // startLoop();
 });

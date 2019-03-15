@@ -3,6 +3,8 @@ class GameView {
     this.game = game;
     this.ctx = ctx;
     this.player = this.game.addPlayer();
+
+    this.paused = false;
   }
 
   bindKeyHandlers(){
@@ -19,16 +21,25 @@ class GameView {
     this.bindKeyHandlers();
     this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
+    this.paused = false;
   }
 
   animate(time){
-    const timeDelta = time - this.lastTime;
     this.game.generateItems();
     this.game.step();
-    this.game.draw(this.ctx);
-    this.lastTime = time;
+    this.game.draw(this.ctx);    
+    if(this.paused) return;
+    this.id = requestAnimationFrame(this.animate.bind(this));
+  }
 
-    requestAnimationFrame(this.animate.bind(this));
+  pause(){
+    if(this.paused){
+      this.paused = false;
+      this.animate();
+    }else{
+      // cancelAnimationFrame(this.id);
+      this.paused = true;
+    }
   }
 }
 
