@@ -7,7 +7,7 @@ class Game{
     this.player = null;
     this.coins = [];
 
-    this.coinCount = 15;
+    this.coinCount = 0;
   }
 
 
@@ -16,7 +16,7 @@ class Game{
       this.player = object;
     }else if(object instanceof Obstacle){
       this.obstacles.push(object);
-      console.log(this.obstacles);
+      // console.log(this.obstacles);
     }
   }
 
@@ -68,7 +68,23 @@ class Game{
 
   step(){
     this.moveObjects();
-    //this.checkCollisions();
+    this.checkCollisions();
+  }
+
+  checkCollisions(){
+    const allObjects = this.allObjects();
+    for(let i = 0; i < allObjects.length; i++){
+      let player = this.player;
+      let b = allObjects[i];
+      if(!(
+        ((player.pos[1] + player.height) < (b.pos[1])) ||
+        (player.pos[1] > (b.pos[1] + b.height)) ||
+        ((player.pos[0] + player.width) < b.pos[0]) ||
+        (player.pos[0] > (b.pos[0] + b.width))
+      )){
+        player.isCollidedWith(b);
+      }
+    }
   }
 
   draw(ctx){
@@ -76,8 +92,8 @@ class Game{
     ctx.fillStyle = Game.BG_COLOR;
     ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
     this.obstacles.forEach(el => {
-      el.draw(ctx)
-    })
+      el.draw(ctx);
+    });
     this.player.draw(ctx);
   }
 }

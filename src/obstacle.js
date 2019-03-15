@@ -3,9 +3,12 @@ const MovingObject = require('./moving_object');
 class Obstacle extends MovingObject {
   constructor(options){
     super(options);
+    this.height = 28;
+    this.width = 32;
   }
 
   move(x){
+    if (this.pos > 900) this.remove();
     this.pos[1] += x;
   }
 

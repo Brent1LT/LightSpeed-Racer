@@ -34,8 +34,8 @@ class GameView {
 
 
 GameView.MOVES = {
-  a: [-30, 0],
-  d: [30, 0]
+  a: [-40, 0],
+  d: [40, 0]
 };
 
 module.exports = GameView;
