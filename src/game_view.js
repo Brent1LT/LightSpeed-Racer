@@ -4,7 +4,7 @@ class GameView {
     this.ctx = ctx;
     this.player = this.game.addPlayer();
 
-    this.paused = false;
+    this.paused = true;
   }
 
   bindKeyHandlers(){
@@ -21,24 +21,25 @@ class GameView {
     this.bindKeyHandlers();
     this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
-    this.paused = false;
+    // this.paused = false;
   }
 
   animate(time){
     this.game.generateItems();
     this.game.step();
-    this.game.draw(this.ctx);    
+    this.game.draw(this.ctx); 
     if(this.paused) return;
     this.id = requestAnimationFrame(this.animate.bind(this));
   }
 
-  pause(){
+  pause(audio){
     if(this.paused){
       this.paused = false;
       this.animate();
+      audio.play();
     }else{
-      // cancelAnimationFrame(this.id);
       this.paused = true;
+      audio.pause();
     }
   }
 }

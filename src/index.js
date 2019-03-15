@@ -9,18 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.width = Game.DIM_X;
   canvas.height = Game.DIM_Y;
   const ctx = canvas.getContext('2d');
+
+  let audio = document.getElementById('audio');
   
       
   const game = new Game();
   let lightspeed = new GameView(game, ctx);
-  lightspeed.start()
+  lightspeed.start();
 
   window.addEventListener("keypress", (e) => {
     if (e.charCode === 13) {
       console.log(lightspeed)
-      lightspeed.pause();
+      lightspeed.pause(audio);
       console.log('paused');
-    }
+
+      }
   });
       
   // startLoop();
