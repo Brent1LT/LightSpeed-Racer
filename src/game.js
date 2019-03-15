@@ -8,7 +8,7 @@ class Game{
     this.player = null;
     this.coins = [];
 
-    this.coinCount = 15;
+    this.coinCount = 0;
   }
 
 
@@ -17,10 +17,8 @@ class Game{
       this.player = object;
     }else if(object instanceof Obstacle){
       this.obstacles.push(object);
-      // console.log(this.obstacles);
     }else if(object instanceof Coin){
       this.coins.push(object);
-      console.log(this.coins);
     }
   }
 
@@ -42,12 +40,14 @@ class Game{
 
   moveObjects(){
     this.allObjects().forEach(object => {
-      if(this.coinCount < 5){
-        object.move(5);
-      } else if (this.coinCount < 10){
-        object.move(9);
-      }else{
+      if(this.coinCount < 3){
+        object.move(8);
+      } else if (this.coinCount < 7){
         object.move(12);
+      }else if (this.coinCount < 10){
+        object.move(15);
+      }else {
+        object.move(20);
       }
 
     });
@@ -76,7 +76,7 @@ class Game{
   }
 
   generateItems(){
-    if(Math.random() > 0.995){
+    if(Math.random() > 0.993){
       this.createObstacles();
     }
 
@@ -110,8 +110,9 @@ class Game{
     if (object instanceof Obstacle) {
       console.log('collision');
     } else if (object instanceof Coin) {
-      console.log('collect coin');
+      this.coinCount += 1;
       this.removeCoin(object);
+      console.log(this.coinCount);
     }
   }
 
