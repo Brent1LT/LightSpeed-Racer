@@ -1,6 +1,5 @@
 const MovingObject = require('./moving_object');
-const Obstacle = require('./obstacle');
-const Coin = require('./coin');
+
 
 class Player extends MovingObject {
   constructor(options) {

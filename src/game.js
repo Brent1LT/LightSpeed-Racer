@@ -54,7 +54,7 @@ class Game{
   }
 
   createObstacles(){
-    for(let i = 0; i < Math.ceil(Math.random() * 3); i++){
+    for(let i = 0; i < Math.ceil(Math.random() * 4); i++){
       let obstacle = new Obstacle({
         pos: [Math.random() * (Game.DIM_X - 40), (0 - Math.random() * Game.DIM_Y)],
         vel: [10, 10],
