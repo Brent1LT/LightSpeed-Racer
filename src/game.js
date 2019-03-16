@@ -9,6 +9,7 @@ class Game{
     this.player = null;
     this.coins = [];
 
+    this.gameOver = false;
     this.coinCount = 0;
     this.startlines = new StartLines({
       pos: [0, 0],
@@ -38,9 +39,7 @@ class Game{
       vel: [10, 10],
       color: "rgb(0, 0, 0)"
     });
-
     this.add(player);
-
     return player;
   }
 
@@ -55,7 +54,6 @@ class Game{
       }else {
         object.move(20);
       }
-
     });
   }
 
@@ -114,7 +112,7 @@ class Game{
 
   isCollidedWith(player, object){
     if (object instanceof Obstacle) {
-      console.log('collision');
+      this.gameOver = true;
     } else if (object instanceof Coin) {
       this.coinCount += 1;
       this.removeCoin(object);
@@ -135,8 +133,15 @@ class Game{
     });
 
     this.startlines.draw(ctx);
-    
     this.player.draw(ctx);
+
+    if(this.gameOver){
+      this.gameOverLogic();
+    }
+  }
+
+  gameOverLogic(){
+    console.log('gameover');
   }
 }
 

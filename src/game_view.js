@@ -14,7 +14,12 @@ class GameView {
 
     Object.keys(GameView.MOVES).forEach(k => {
       const move = GameView.MOVES[k];
-      key(k, () => player.power(move));
+      key(k, () =>{
+        if(this.paused){
+          return null;
+        }
+        player.power(move);
+      });
     });
   }
 
@@ -22,7 +27,6 @@ class GameView {
     this.bindKeyHandlers();
     this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
-    // this.paused = false;
   }
 
   animate(time){
@@ -30,6 +34,7 @@ class GameView {
     this.game.step();
     this.game.draw(this.ctx); 
     if(this.paused) return;
+    if(this.game.gameOver) return;
     this.id = requestAnimationFrame(this.animate.bind(this));
   }
 
