@@ -14,27 +14,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let mute = document.getElementById('mute');
   let muted = false;
   
-  
-  mute.addEventListener('click', () => {
-    if(muted){
-      audio.play();
-      muted = false;
-    }else{
-      audio.pause();
-      muted = true;
-    }
-  });
 
   const game = new Game();
   let lightspeed = new GameView(game, ctx);
   lightspeed.start();
 
+  mute.addEventListener('click', () => {
+    if (muted) {
+      lightspeed.muted = false;
+      muted = false;
+      audio.play();
+      console.log(muted, lightspeed.muted);
+    } else {
+      lightspeed.muted = true;
+      muted = true;
+      audio.pause();
+      console.log(muted, lightspeed.muted);
+    }
+  });
+
 
   window.addEventListener("keypress", (e) => {
     if (e.charCode === 13) {
-      console.log(lightspeed)
       lightspeed.pause(audio);
       console.log('paused');
+      console.log(lightspeed);
 
       }
   });

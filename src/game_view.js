@@ -5,6 +5,7 @@ class GameView {
     this.player = this.game.addPlayer();
 
     this.paused = true;
+    this.muted = false;
   }
 
   bindKeyHandlers(){
@@ -36,10 +37,10 @@ class GameView {
     if(this.paused){
       this.paused = false;
       this.animate();
-      audio.play();
+      if(!this.muted) audio.play();
     }else{
       this.paused = true;
-      audio.pause();
+      if(!this.muted) audio.pause();
     }
   }
 }
