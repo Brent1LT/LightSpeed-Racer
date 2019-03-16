@@ -1,6 +1,7 @@
 const Player = require('./player');
 const Obstacle = require('./obstacle');
 const Coin = require('./coin');
+const StartLines = require('./start_lines');
 
 class Game{
   constructor(){
@@ -9,6 +10,11 @@ class Game{
     this.coins = [];
 
     this.coinCount = 0;
+    this.startlines = new StartLines({
+      pos: [0, 0],
+      vel: [10, 10],
+      color: "#3befe8"
+    });
   }
 
 
@@ -127,6 +133,8 @@ class Game{
     this.allObjects().forEach(el => {
       el.draw(ctx);
     });
+
+    this.startlines.draw(ctx);
     
     this.player.draw(ctx);
   }
