@@ -2,6 +2,16 @@ body {
   background: black;
 }
 
+.title{
+  font-size: 40px;
+  color: white;
+  width: 24%;
+  margin: auto;
+  margin-bottom: 15px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1.5px;
+}
+
 .muted{
   color: red;
   font-size: 30px;
@@ -15,18 +25,18 @@ body {
 .game-container{
   width: 35%;
   margin: auto;
-  position: relative;
 
 }
 
 #game-canvas{
   margin-top: 10px;
+  position: relative;
 }
 
 .score{
   font-size: 40px;
   color: gold;
   position: absolute;
-  top: 0%;
+  top: 7%;
   left: 57%;
 }
