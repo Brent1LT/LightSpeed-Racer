@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightspeed.start();
 
   mute.addEventListener('click', () => {
+    mute.classList.toggle('mute');
     if (muted) {
       lightspeed.muted = false;
       muted = false;

@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Lightspeed Racer</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <link rel='stylesheet' href='../app/assets/stylesheets/game.css'/>
 </head>
 <body>
-  <div id='mute'>Mute Button</div>
-  <canvas id='game-canvas' ></canvas>
+  <div class='game-container'>
+    <i id='mute' class="fas fa-volume-mute mute muted"></i>
+    <canvas id='game-canvas' ></canvas>
+  </div>
   <div class="score">Score</div>
 
   <audio id='audio' loop play >

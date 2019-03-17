@@ -1,0 +1,32 @@
+body {
+  background: black;
+}
+
+.muted{
+  color: red;
+  font-size: 30px;
+}
+.mute{
+  color: white;
+  font-size: 30px;
+}
+
+
+.game-container{
+  width: 35%;
+  margin: auto;
+  position: relative;
+
+}
+
+#game-canvas{
+  margin-top: 10px;
+}
+
+.score{
+  font-size: 40px;
+  color: gold;
+  position: absolute;
+  top: 0%;
+  left: 57%;
+}

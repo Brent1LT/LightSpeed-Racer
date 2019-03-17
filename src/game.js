@@ -136,7 +136,7 @@ class Game{
     this.startlines.draw(ctx);
     this.player.draw(ctx);
     let score = document.getElementsByClassName('score')[0];
-    score.innerHTML = `Score: ${this.coinCount}`;
+    score.innerHTML = `Coins: ${this.coinCount}`;
 
     if(this.gameOver){
       this.gameOverLogic();
@@ -149,7 +149,7 @@ class Game{
 }
 
 Game.BG_COLOR = "#43b9e0";
-Game.DIM_X = screen.width * 0.3;
+Game.DIM_X = screen.width * 0.35;
 Game.DIM_Y = screen.height * 0.8;
 Game.FPS = 100;
 
