@@ -3,6 +3,7 @@ const MovingObject = require('./moving_object');
 class StartLines extends MovingObject{
   constructor(options){
     super(options);
+    this.maxWidth = options.maxWidth;
 
     this.tick = 0;
   }
@@ -29,11 +30,16 @@ class StartLines extends MovingObject{
   }
 
   draw(ctx){
-    this.drawLine(ctx, 100);
-    this.drawLine(ctx, 200);
-    this.drawLine(ctx, 300);
-    this.drawLine(ctx, 400);
-    this.drawLine(ctx, 500);
+
+    for(let i = 0; i < 20; i++){
+      this.drawLine(ctx, i * 100);
+      if(i * 100 > this.maxWidth) continue;
+    }
+    // this.drawLine(ctx, 100);
+    // this.drawLine(ctx, 200);
+    // this.drawLine(ctx, 300);
+    // this.drawLine(ctx, 400);
+    // this.drawLine(ctx, 500);
     this.tick += 1;
   }
 }

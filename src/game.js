@@ -14,7 +14,8 @@ class Game{
     this.startlines = new StartLines({
       pos: [0, 0],
       vel: [10, 10],
-      color: "#3befe8"
+      color: "#3befe8",
+      maxWidth: Game.DIM_X
     });
   }
 
@@ -35,7 +36,7 @@ class Game{
 
   addPlayer(){
     const player = new Player({
-      pos: [250, 800],
+      pos: [Game.DIM_X * 0.5, Game.DIM_Y * 0.9],
       vel: [10, 10],
       color: "rgb(0, 0, 0)"
     });
@@ -146,8 +147,8 @@ class Game{
 }
 
 Game.BG_COLOR = "#43b9e0";
-Game.DIM_X = 600;
-Game.DIM_Y = 900;
+Game.DIM_X = screen.width * 0.3;
+Game.DIM_Y = screen.height * 0.8;
 Game.FPS = 100;
 
 
