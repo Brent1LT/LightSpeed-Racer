@@ -6,7 +6,7 @@ const StartLines = require('./start_lines');
 class Game{
   constructor(){
     this.obstacles = [];
-    this.player = null;
+    this.player = this.addPlayer();
     this.coins = [];
 
     this.gameOver = false;

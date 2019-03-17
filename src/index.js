@@ -1,6 +1,4 @@
 import _ from 'lodash';
-const Player = require('./player');
-const Obstacle = require('./obstacle');
 const Game = require('./game');
 const GameView = require('./game_view');
 
@@ -16,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   const game = new Game();
-  let lightspeed = new GameView(game, ctx);
+  let lightspeed = new GameView(game, ctx, audio);
   lightspeed.start();
 
   mute.addEventListener('click', () => {

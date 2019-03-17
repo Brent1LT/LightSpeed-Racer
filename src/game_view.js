@@ -1,15 +1,17 @@
+const Game = require('./game');
+
 class GameView {
-  constructor(game, ctx){
+  constructor(game, ctx, audio){
     this.game = game;
     this.ctx = ctx;
-    this.player = this.game.addPlayer();
+    this.audio = audio;
 
     this.paused = true;
     this.muted = false;
   }
 
   bindKeyHandlers(){
-    const player = this.player;
+    const player = this.game.player;
     
 
     Object.keys(GameView.MOVES).forEach(k => {
@@ -25,27 +27,36 @@ class GameView {
 
   start(){
     this.bindKeyHandlers();
-    this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
   }
 
-  animate(time){
+  animate(){
     this.game.generateItems();
     this.game.step();
     this.game.draw(this.ctx); 
     if(this.paused) return;
-    if(this.game.gameOver) return;
+    if(this.game.gameOver){
+      this.audio.pause();
+      return;
+    } 
     this.id = requestAnimationFrame(this.animate.bind(this));
   }
 
-  pause(audio){
-    if(this.paused){
+  pause(){
+    if(this.game.gameOver){
+      this.game = new Game();
+      if(!this.muted){
+        this.audio.currentTime = 0;
+        audio.play();
+      } 
+      this.start();
+    }else if(this.paused){
       this.paused = false;
       this.animate();
-      if(!this.muted) audio.play();
+      if(!this.muted) this.audio.play();
     }else{
       this.paused = true;
-      if(!this.muted) audio.pause();
+      if(!this.muted) this.audio.pause();
     }
   }
 }
