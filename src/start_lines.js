@@ -35,11 +35,6 @@ class StartLines extends MovingObject{
       this.drawLine(ctx, i * 100);
       if(i * 100 > this.maxWidth) continue;
     }
-    // this.drawLine(ctx, 100);
-    // this.drawLine(ctx, 200);
-    // this.drawLine(ctx, 300);
-    // this.drawLine(ctx, 400);
-    // this.drawLine(ctx, 500);
     this.tick += 1;
   }
 }

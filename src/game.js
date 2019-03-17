@@ -135,6 +135,8 @@ class Game{
 
     this.startlines.draw(ctx);
     this.player.draw(ctx);
+    let score = document.getElementsByClassName('score')[0];
+    score.innerHTML = `Score: ${this.coinCount}`;
 
     if(this.gameOver){
       this.gameOverLogic();
