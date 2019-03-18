@@ -38,7 +38,8 @@ class Game{
     const player = new Player({
       pos: [Game.DIM_X * 0.5, Game.DIM_Y * 0.9],
       vel: [10, 10],
-      color: "rgb(0, 0, 0)"
+      color: "rgb(0, 0, 0)",
+      maxDist: Game.DIM_X
     });
     this.add(player);
     return player;
@@ -138,13 +139,17 @@ class Game{
     let score = document.getElementsByClassName('score')[0];
     score.innerHTML = `Coins: ${this.coinCount}`;
 
-    if(this.gameOver){
-      this.gameOverLogic();
-    }
+    this.gameOverLogic();
   }
 
   gameOverLogic(){
-    console.log('gameover');
+    let gameover = document.getElementById('gameover');
+    if(this.gameOver){
+      gameover.innerHTML = `Game Over! You got ${this.coinCount} coins! Press "enter" to play again`;
+      gameover.classList.add('gameover-text');
+    }else{
+      gameover.classList.remove('gameover-text');
+    }
   }
 }
 
