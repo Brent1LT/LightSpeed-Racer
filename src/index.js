@@ -23,12 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
       lightspeed.muted = false;
       muted = false;
       audio.play();
-      console.log(muted, lightspeed.muted);
     } else {
       lightspeed.muted = true;
       muted = true;
       audio.pause();
-      console.log(muted, lightspeed.muted);
     }
   });
 
@@ -36,9 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("keypress", (e) => {
     if (e.charCode === 13) {
       lightspeed.pause(audio);
-      console.log('paused');
-      console.log(lightspeed);
-
       }
   });
       

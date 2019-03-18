@@ -18,7 +18,7 @@ class Player extends MovingObject {
   }
 
 
-  draw(ctx){
+  draw(ctx, powerup){
 
     //wheels
     if(this.tick > 5){

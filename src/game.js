@@ -2,12 +2,15 @@ const Player = require('./player');
 const Obstacle = require('./obstacle');
 const Coin = require('./coin');
 const StartLines = require('./start_lines');
+const Shield = require('./shield');
 
 class Game{
   constructor(){
     this.obstacles = [];
     this.player = this.addPlayer();
     this.coins = [];
+    this.powerups = [];
+    this.powerup = null;
 
     this.gameOver = false;
     this.coinCount = 0;
@@ -27,11 +30,13 @@ class Game{
       this.obstacles.push(object);
     }else if(object instanceof Coin){
       this.coins.push(object);
+    }else if(object instanceof Shield){
+      this.powerups.push(object);
     }
   }
 
   allObjects(){
-    return [].concat(this.obstacles, this.coins);
+    return [].concat(this.obstacles, this.coins, this.powerups);
   }
 
   addPlayer(){
@@ -81,6 +86,16 @@ class Game{
     this.add(coin);
   }
 
+  createPowerup(){
+    let shield = new Shield({
+      pos: [Math.random() * (Game.DIM_X - 40),
+      0 - Math.random() * Game.DIM_Y
+      ],
+      color: "#fff"
+    });
+    this.add(shield);
+  }
+
   generateItems(){
     if(Math.random() > 0.993){
       this.createObstacles();
@@ -88,6 +103,10 @@ class Game{
 
     if(Math.random() > 0.995){
       this.createCoin();
+    }
+
+    if(Math.random() > 0.999){
+      this.createPowerup();
     }
   }
 
@@ -114,17 +133,28 @@ class Game{
 
   isCollidedWith(player, object){
     if (object instanceof Obstacle) {
-      this.gameOver = true;
+      if(this.powerup === 'shield'){
+        this.obstacles.splice(this.obstacles.indexOf(object), 1);
+        this.powerup = null;
+      }else{
+        this.gameOver = true;
+      }
     } else if (object instanceof Coin) {
       this.coinCount += 1;
       this.removeCoin(object);
-      console.log(this.coinCount);
+    }else if(object instanceof Shield){
+      this.removePowerup(object);
+      this.powerup = 'shield';
     }
   }
 
   removeCoin(object){
     this.coins.splice(this.coins.indexOf(object), 1);
   }  
+
+  removePowerup(object){
+    this.powerups.splice(this.powerups.indexOf(object), 1);
+  }
 
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
