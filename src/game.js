@@ -165,7 +165,7 @@ class Game{
     });
 
     this.startlines.draw(ctx);
-    this.player.draw(ctx);
+    this.player.draw(ctx, this.powerup);
     let score = document.getElementsByClassName('score')[0];
     score.innerHTML = `Coins: ${this.coinCount}`;
 

@@ -20,6 +20,16 @@ class Player extends MovingObject {
 
   draw(ctx, powerup){
 
+    // if (powerup === 'shield'){
+    //   ctx.fillStyle = '#fff'
+    //   ctx.fillRect(this.pos[0] + 1, this.pos[1] - 10, 5, 5);
+    //   ctx.fillRect(this.pos[0] + 6, this.pos[1] - 15, 5, 5);
+    //   ctx.fillRect(this.pos[0] + 12, this.pos[1] - 18, 5, 5);
+    //   ctx.fillRect(this.pos[0] + 18, this.pos[1] - 18, 5, 5);
+    //   ctx.fillRect(this.pos[0] + 24, this.pos[1] - 15, 5, 5);
+    //   ctx.fillRect(this.pos[0] + 30, this.pos[1] - 12, 5, 5);
+    // }
+
     //wheels
     if(this.tick > 5){
       ctx.fillStyle = "#f20cdf";
