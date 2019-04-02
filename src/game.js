@@ -184,7 +184,9 @@ class Game{
 }
 
 Game.BG_COLOR = "#43b9e0";
-Game.DIM_X = screen.width * 0.35;
+let canvasWidth = document.getElementById('game-container');
+console.log(canvasWidth, canvasWidth.style.width);
+Game.DIM_X = screen.width * 0.5;
 Game.DIM_Y = screen.height * 0.8;
 Game.FPS = 100;
 
