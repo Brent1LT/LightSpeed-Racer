@@ -11,12 +11,16 @@
 </head>
 <body>
   <div class='title'>Lightspeed Racer</div>
-  <div class='game-container'>
-    <i id='mute' class="fas fa-volume-mute mute muted"></i>
-    <canvas id='game-canvas' ></canvas>
-    <div class='controls'>Controls: Use "a" to move left Use "d" to move right Press "enter" to begin</div>
-    <div class="instructions">Watch out for obstacles and collect as many coins as you can!</div>
-    <div id="gameover" class="gameover"></div>
+  <div class="info-container">
+    <div class='controls'>Controls: Use "a" to move left Use "d" to move right Press "enter" to begin
+      <div class="instructions">Watch out for obstacles and collect as many coins as you can!</div>
+    </div>
+    <div id='game-container' class='game-container'>
+      <i id='mute' class="fas fa-volume-mute mute muted"></i>
+      <canvas id='game-canvas' ></canvas>
+
+      <div id="gameover" class="gameover"></div>
+    </div>
   </div>
   <div class="score">Score</div>
 

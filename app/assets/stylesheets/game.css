@@ -23,7 +23,7 @@ body {
 
 
 .game-container{
-  width: 35%;
+  width: 50%;
   margin: auto;
 }
 
@@ -31,26 +31,27 @@ body {
   margin-top: 10px;
   position: relative;
   margin-left: 0%;
+  /* background: url('../road-background.jpg') */
 }
 
 .controls{
   color: white;
-  position: absolute;
   text-align: center;
-  left: 2%;
-  top: 30%;
+  padding-top: 5%;
   font-size: 40px;
   width: 30%;
 }
 
+.info-container{
+  display: flex;
+  justify-content: center
+}
+
 .instructions{
   color: white;
-  position: absolute;
   text-align: center;
-  right: 2%;
-  top: 30%;
+  padding-top: 40px;
   font-size: 40px;
-  width: 30%;
 }
 
 .score{
