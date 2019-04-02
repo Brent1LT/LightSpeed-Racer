@@ -7,20 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.width = Game.DIM_X;
   canvas.height = Game.DIM_Y;
   const ctx = canvas.getContext('2d');
-  // let background = new Image();
-  // background.src =
-  //   "";
-  // background.onload = function(){
-  //   ctx.drawImage(background, 0, 0);
-  // };
-
+  
+  let background = new Image();
+  background.src =
+    "https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/road-background.jpg?raw=true";
+  background.onload = function () {
+    ctx.drawImage(background, 0, 0, Game.DIM_X, Game.DIM_Y);
+  };
 
   let audio = document.getElementById('audio');
   let mute = document.getElementById('mute');
   let muted = false;
   
 
-  const game = new Game();
+  const game = new Game(background);
   let lightspeed = new GameView(game, ctx, audio);
   lightspeed.start();
 

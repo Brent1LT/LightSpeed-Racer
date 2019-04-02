@@ -5,7 +5,9 @@ const StartLines = require('./start_lines');
 const Shield = require('./shield');
 
 class Game{
-  constructor(){
+  constructor(background){
+    this.background = background;
+
     this.obstacles = [];
     this.player = this.addPlayer();
     this.coins = [];
@@ -69,7 +71,8 @@ class Game{
       let obstacle = new Obstacle({
         pos: [Math.random() * (Game.DIM_X - 40), (0 - Math.random() * Game.DIM_Y)],
         vel: [10, 10],
-        color: "#565151"
+        // color: "#565151"
+        color: "rgb(0,0,0)"
       });
       this.add(obstacle);
     }
@@ -158,8 +161,9 @@ class Game{
 
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
-    ctx.fillStyle = Game.BG_COLOR;
-    ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
+    // ctx.fillStyle = Game.BG_COLOR;
+    // ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
+    ctx.drawImage(this.background, 0, 0, Game.DIM_X, Game.DIM_Y);
     this.allObjects().forEach(el => {
       el.draw(ctx);
     });
