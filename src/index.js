@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvas.getContext('2d');
   // let background = new Image();
   // background.src =
-  //   "";
+  //   "https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/road-background.jpg?raw=true";
   // background.onload = function(){
   //   ctx.drawImage(background, 0, 0);
   // };
