@@ -60,14 +60,14 @@ body {
   color: gold;
   position: absolute;
   top: 7%;
-  left: 57%;
+  left: 62%;
 }
 
 .gameover{
   position: absolute;
   text-align: center;
   top: 50%;
-  left: 35%;
+  left: 50%;
   color: red;
   font-size: 40px;
   width: 30%;

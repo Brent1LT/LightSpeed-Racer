@@ -45,7 +45,7 @@ class Game{
     const player = new Player({
       pos: [Game.DIM_X * 0.5, Game.DIM_Y * 0.9],
       vel: [10, 10],
-      color: "rgb(0, 0, 0)",
+      color: "#43b9e0",
       maxDist: Game.DIM_X
     });
     this.add(player);
@@ -69,10 +69,12 @@ class Game{
   createObstacles(){
     for(let i = 0; i < Math.ceil(Math.random() * 3); i++){
       let obstacle = new Obstacle({
-        pos: [Math.random() * (Game.DIM_X - 40), (0 - Math.random() * Game.DIM_Y)],
+        pos: [
+          Math.random() * (Game.DIM_X - 40),
+          0 - Math.random() * Game.DIM_Y
+        ],
         vel: [10, 10],
-        // color: "#565151"
-        color: "rgb(0,0,0)"
+        color: "#ef0b0b"
       });
       this.add(obstacle);
     }
@@ -168,7 +170,7 @@ class Game{
       el.draw(ctx);
     });
 
-    this.startlines.draw(ctx);
+    // this.startlines.draw(ctx, this.background);
     this.player.draw(ctx, this.powerup);
     let score = document.getElementsByClassName('score')[0];
     score.innerHTML = `Coins: ${this.coinCount}`;

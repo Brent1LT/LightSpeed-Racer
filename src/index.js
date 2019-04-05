@@ -10,10 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   let background = new Image();
   background.src =
-    "https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/road-background.jpg?raw=true";
-  background.onload = function () {
-    ctx.drawImage(background, 0, 0, Game.DIM_X, Game.DIM_Y);
-  };
+    "https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/other-road-background.jpg?raw=true";
 
   let audio = document.getElementById('audio');
   let mute = document.getElementById('mute');
@@ -22,7 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const game = new Game(background);
   let lightspeed = new GameView(game, ctx, audio);
-  lightspeed.start();
+  
+  background.onload = function() {
+    // game.draw(ctx);
+    lightspeed.start();
+    // debugger
+  };
+  // debugger
+
+  // lightspeed.start();
 
   mute.addEventListener('click', () => {
     mute.classList.toggle('mute');

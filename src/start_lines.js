@@ -29,11 +29,18 @@ class StartLines extends MovingObject{
     }
   }
 
-  draw(ctx){
+  draw(ctx, background){
 
-    for(let i = 0; i < 20; i++){
-      this.drawLine(ctx, i * 100);
-      if(i * 100 > this.maxWidth) continue;
+    // for(let i = 0; i < 20; i++){
+    //   this.drawLine(ctx, i * 100);
+    //   if(i * 100 > this.maxWidth) continue;
+    // }
+    for(let i = 0; i <( background.width / 2) - 50; i = i + 100){
+      this.drawLine(ctx, i);
+    }
+    let newIndex = (background.width / 2) + 50;
+    for(let i =newIndex; i < background.width; i = i + 100){
+      this.drawLine(ctx, i);
     }
     this.tick += 1;
   }
