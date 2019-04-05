@@ -44,7 +44,8 @@ class GameView {
 
   pause(){
     if(this.game.gameOver){
-      this.game = new Game();
+      let newBackground = this.game.background;
+      this.game = new Game(newBackground);
       if(!this.muted){
         this.audio.currentTime = 0;
         audio.play();

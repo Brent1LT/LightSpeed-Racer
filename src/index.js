@@ -21,11 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let lightspeed = new GameView(game, ctx, audio);
   
   background.onload = function() {
-    // game.draw(ctx);
     lightspeed.start();
-    // debugger
   };
-  // debugger
 
   // lightspeed.start();
 
