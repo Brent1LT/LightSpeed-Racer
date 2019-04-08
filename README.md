@@ -8,7 +8,6 @@ avoiding obstacles. You can also collect power-ups to help survive for longer.
 LightSpeed Racer uses Canvas for creating the game space, JavaScript to handle game mechanics, and CSS for appropiate styling.
 
 ## Technologies
-
 * *Vanilla JavaScript* -- for game logic.
 * *HTML5 / CSS3* -- for appropiate styling and game audio.
 * *Github pages* -- to host the game.
@@ -61,6 +60,12 @@ checkCollisions(){
 
 ```
 
+## Pause and Audio Control
+Lightspeed Racer has logic implemented to detect whether the game is paused or over and will continue or reset respectively. 
+
+The music will pause/play if game is paused/resumed but will remain silent if muted allowing players full control over music and can continue the game at their leisure. 
+
 ## Future Features 
 * Add more power-up options and some hindering power-downs.
 * Add a velocity for smoother contol of player avatar.
+* Highscore leaderboard.
