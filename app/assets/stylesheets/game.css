@@ -54,11 +54,15 @@ body {
   font-size: 40px;
 }
 
+.coin-photo{
+  margin-top: 10px;
+}
+
 .score{
   font-size: 40px;
   color: gold;
   position: absolute;
-  top: 7%;
+  top: 6%;
   left: 62%;
 }
 
