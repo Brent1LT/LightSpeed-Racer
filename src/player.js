@@ -20,15 +20,18 @@ class Player extends MovingObject {
 
   draw(ctx, powerup){
 
-    // if (powerup === 'shield'){
-    //   ctx.fillStyle = '#fff'
-    //   ctx.fillRect(this.pos[0] + 1, this.pos[1] - 10, 5, 5);
-    //   ctx.fillRect(this.pos[0] + 6, this.pos[1] - 15, 5, 5);
-    //   ctx.fillRect(this.pos[0] + 12, this.pos[1] - 18, 5, 5);
-    //   ctx.fillRect(this.pos[0] + 18, this.pos[1] - 18, 5, 5);
-    //   ctx.fillRect(this.pos[0] + 24, this.pos[1] - 15, 5, 5);
-    //   ctx.fillRect(this.pos[0] + 30, this.pos[1] - 12, 5, 5);
-    // }
+    if (powerup === 'shield'){
+      if (this.tick > 5) {
+        ctx.strokeStyle = "#f20cdf";
+        this.tick = 0;
+      } else {
+        ctx.strokeStyle = "#0fe80b";
+      }
+      ctx.lineWidth = 5;
+      
+      ctx.arc(this.pos[0] + 19, this.pos[1] + 19, 30, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
 
     //wheels
     if(this.tick > 5){
