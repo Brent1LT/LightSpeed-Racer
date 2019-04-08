@@ -14,6 +14,7 @@ class Game{
     this.powerups = [];
     this.powerup = null;
     this.scroll = 0;
+    this.scrollSpeed = 10;
 
     this.gameOver = false;
     this.coinCount = 0;
@@ -59,10 +60,12 @@ class Game{
         object.move(8);
       } else if (this.coinCount < 7){
         object.move(12);
+        this.scrollSpeed = 15;
       }else if (this.coinCount < 10){
         object.move(15);
       }else {
         object.move(20);
+        this.scrollSpeed = 20;
       }
     });
   }
@@ -177,7 +180,7 @@ class Game{
     let score = document.getElementsByClassName('score')[0];
     score.innerHTML = `Coins: ${this.coinCount}`;
 
-    this.scroll += 10;
+    this.scroll += this.scrollSpeed;
     if (this.scroll > Game.DIM_Y){
       this.scroll = 0;
     }
@@ -196,8 +199,6 @@ class Game{
 }
 
 Game.BG_COLOR = "#43b9e0";
-let canvasWidth = document.getElementById('game-container');
-// console.log(canvasWidth, canvasWidth.style.width);
 Game.DIM_X = screen.width * 0.5;
 Game.DIM_Y = screen.height * 0.8;
 Game.FPS = 100;
