@@ -24,7 +24,7 @@ LightSpeed Racer uses Canvas for creating the game space, JavaScript to handle g
 Establishing a collision hit box enables the game to calculate hit dectection at every frame
 to determine a game-over if collided with an obstacle or score-upating if collection a coin.
 
-![Obstacle Dectection]()
+![Obstacle Dectection](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/obstacle_detection.png)
 ```
 checkCollisions(){
     const allObjects = this.allObjects();
