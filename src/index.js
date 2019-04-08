@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (muted) {
       lightspeed.muted = false;
       muted = false;
-      audio.play();
+      if(!lightspeed.paused){
+        audio.play();
+      }
     } else {
       lightspeed.muted = true;
       muted = true;
