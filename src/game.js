@@ -106,11 +106,11 @@ class Game{
   }
 
   generateItems(){
-    if(Math.random() > 0.990){
+    if(Math.random() > 0.988){
       this.createObstacles();
     }
 
-    if(Math.random() > 0.995){
+    if(Math.random() > 0.985){
       this.createCoin();
     }
 
