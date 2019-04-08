@@ -128,14 +128,14 @@ class Game{
     const allObjects = this.allObjects();
     for(let i = 0; i < allObjects.length; i++){
       let player = this.player;
-      let b = allObjects[i];
+      let item = allObjects[i];
       if(!(
-        ((player.pos[1] + player.height) < (b.pos[1])) ||
-        (player.pos[1] > (b.pos[1] + b.height)) ||
-        ((player.pos[0] + player.width) < b.pos[0]) ||
-        (player.pos[0] > (b.pos[0] + b.width))
+        ((player.pos[1] + player.height) < (item.pos[1])) ||
+        (player.pos[1] > (item.pos[1] + item.height)) ||
+        ((player.pos[0] + player.width) < item.pos[0]) ||
+        (player.pos[0] > (item.pos[0] + item.width))
       )){
-        this.isCollidedWith(player, b);
+        this.isCollidedWith(player, item);
       }
     }
   }
