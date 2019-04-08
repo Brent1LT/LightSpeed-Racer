@@ -15,10 +15,12 @@ body {
 .muted{
   color: red;
   font-size: 30px;
+  cursor: pointer;
 }
 .mute{
   color: white;
   font-size: 30px;
+  cursor: pointer;
 }
 
 
