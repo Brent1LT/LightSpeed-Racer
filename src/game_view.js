@@ -31,7 +31,7 @@ class GameView {
   }
 
   animate(){
-    // this.game.generateItems();
+    this.game.generateItems();
     this.game.step();
     this.game.draw(this.ctx); 
     if(this.paused) return;
