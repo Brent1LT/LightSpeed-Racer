@@ -31,14 +31,13 @@ body {
   margin-top: 10px;
   position: relative;
   margin-left: 0%;
-  /* background: url('../road-background.jpg'); */
   background-size: 100% 100%
 }
 
 .controls{
   color: white;
   text-align: center;
-  padding-top: 5%;
+  padding-top: 2%;
   font-size: 40px;
   width: 30%;
 }
