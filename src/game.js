@@ -13,15 +13,16 @@ class Game{
     this.coins = [];
     this.powerups = [];
     this.powerup = null;
+    this.scroll = 0;
 
     this.gameOver = false;
     this.coinCount = 0;
-    this.startlines = new StartLines({
-      pos: [0, 0],
-      vel: [10, 10],
-      color: "#3befe8",
-      maxWidth: Game.DIM_X
-    });
+    // this.startlines = new StartLines({
+    //   pos: [0, 0],
+    //   vel: [10, 10],
+    //   color: "#3befe8",
+    //   maxWidth: Game.DIM_X
+    // });
   }
 
 
@@ -161,31 +162,12 @@ class Game{
     this.powerups.splice(this.powerups.indexOf(object), 1);
   }
 
-  backgroundDraw(ctx){
-    
-    imgWidth = scrollImg.width,
-    imgHeight = scrollImg.height;
-    canvasTemp.width = imgWidth;
-    canvasTemp.height = imgHeight;
-
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-    if (scrollVal >= canvasWidth) {
-      scrollVal = 0;
-    }
-
-    scrollVal += speed;
-    ctx.drawImage(scrollImg, canvasWidth - scrollVal, 0, scrollVal, imgHeight, 0, 0, scrollVal, imgHeight);
-    ctx.drawImage(scrollImg, scrollVal, 0, imgWidth, imgHeight);
-  }
-
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
-    // ctx.fillStyle = Game.BG_COLOR;
-    // ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
-
     
-    ctx.drawImage(this.background, 0, 0, Game.DIM_X, Game.DIM_Y);
+    ctx.drawImage(this.background, 0, this.scroll, Game.DIM_X, Game.DIM_Y);
+    ctx.drawImage(this.background, 0, (-Game.DIM_Y) + this.scroll, Game.DIM_X, Game.DIM_Y);
+
     this.allObjects().forEach(el => {
       el.draw(ctx);
     });
@@ -195,6 +177,10 @@ class Game{
     let score = document.getElementsByClassName('score')[0];
     score.innerHTML = `Coins: ${this.coinCount}`;
 
+    this.scroll += 10;
+    if (this.scroll > Game.DIM_Y){
+      this.scroll = 0;
+    }
     this.gameOverLogic();
   }
 
@@ -211,7 +197,7 @@ class Game{
 
 Game.BG_COLOR = "#43b9e0";
 let canvasWidth = document.getElementById('game-container');
-console.log(canvasWidth, canvasWidth.style.width);
+// console.log(canvasWidth, canvasWidth.style.width);
 Game.DIM_X = screen.width * 0.5;
 Game.DIM_Y = screen.height * 0.8;
 Game.FPS = 100;
