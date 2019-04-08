@@ -25,6 +25,8 @@ to determine a game-over if collided with an obstacle or score-upating if collec
 
 ![Obstacle Dectection](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/obstacle_detection.png)
 ```
+//game.js
+
 checkCollisions(){
     const allObjects = this.allObjects();
     for(let i = 0; i < allObjects.length; i++){
@@ -70,6 +72,8 @@ When clicked, the mute button will turn red to display that the music is muted
 ![Pause2 Image](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/pause2.png)
 
 ```
+//game_view.js
+
 pause(){
     if(this.game.gameOver){
       let newBackground = this.game.background;
@@ -88,6 +92,22 @@ pause(){
       if(!this.muted) this.audio.pause();
     }
   }
+//index.js
+
+mute.addEventListener('click', () => {
+    mute.classList.toggle('mute');
+    if (muted) {
+      lightspeed.muted = false;
+      muted = false;
+      if(!lightspeed.paused){
+        audio.play();
+      }
+    } else {
+      lightspeed.muted = true;
+      muted = true;
+      audio.pause();
+    }
+  });
 ```
 
 ## Future Features 
