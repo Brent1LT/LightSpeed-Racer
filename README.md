@@ -64,6 +64,31 @@ checkCollisions(){
 Lightspeed Racer has logic implemented to detect whether the game is paused or over and will continue or reset respectively. 
 
 The music will pause/play if game is paused/resumed but will remain silent if muted allowing players full control over music and can continue the game at their leisure. 
+![Pause1 Image](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/pause1.png)
+
+When clicked, the mute button will turn red to display that the music is muted
+![Pause2 Image](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/pause2.png)
+
+```
+pause(){
+    if(this.game.gameOver){
+      let newBackground = this.game.background;
+      this.game = new Game(newBackground);
+      if(!this.muted){
+        this.audio.currentTime = 0;
+        audio.play();
+      } 
+      this.start();
+    }else if(this.paused){
+      this.paused = false;
+      this.animate();
+      if(!this.muted) this.audio.play();
+    }else{
+      this.paused = true;
+      if(!this.muted) this.audio.pause();
+    }
+  }
+```
 
 ## Future Features 
 * Add more power-up options and some hindering power-downs.
