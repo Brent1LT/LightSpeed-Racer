@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let background = new Image();
   background.src =
     "https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/other-road-background.jpg?raw=true";
-
   let audio = document.getElementById('audio');
   let mute = document.getElementById('mute');
   let muted = false;
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lightspeed.pause(audio);
       }
   });
-      
 });
 
 

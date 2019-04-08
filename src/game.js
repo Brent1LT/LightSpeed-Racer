@@ -161,10 +161,30 @@ class Game{
     this.powerups.splice(this.powerups.indexOf(object), 1);
   }
 
+  backgroundDraw(ctx){
+    
+    imgWidth = scrollImg.width,
+    imgHeight = scrollImg.height;
+    canvasTemp.width = imgWidth;
+    canvasTemp.height = imgHeight;
+
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    if (scrollVal >= canvasWidth) {
+      scrollVal = 0;
+    }
+
+    scrollVal += speed;
+    ctx.drawImage(scrollImg, canvasWidth - scrollVal, 0, scrollVal, imgHeight, 0, 0, scrollVal, imgHeight);
+    ctx.drawImage(scrollImg, scrollVal, 0, imgWidth, imgHeight);
+  }
+
   draw(ctx){
     ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
     // ctx.fillStyle = Game.BG_COLOR;
     // ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
+
+    
     ctx.drawImage(this.background, 0, 0, Game.DIM_X, Game.DIM_Y);
     this.allObjects().forEach(el => {
       el.draw(ctx);
