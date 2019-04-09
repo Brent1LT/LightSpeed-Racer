@@ -120,7 +120,45 @@ and try harder to get a better score.
 
 Rendering a shield animation also adds more diversity to the game and an extra style element
 
+![Shield Image](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/shield.png)
 
+
+If player is collided with a Shield instance, it is logged and rendered around the player. When collided with an object in the Obstacle class, the Shield power-up is used and the player is protected against 1 Obstacle collision
+```
+//game.js
+
+isCollidedWith(player, object){
+    if (object instanceof Obstacle) {
+      if(this.powerup === 'shield'){
+        this.obstacles.splice(this.obstacles.indexOf(object), 1);
+        this.powerup = null;
+      }else{
+        this.gameOver = true;
+      }
+    } else if (object instanceof Coin) {
+      this.coinCount += 1;
+      this.removeCoin(object);
+    }else if(object instanceof Shield){
+      this.removePowerup(object);
+      this.powerup = 'shield';
+    }
+  }
+
+//player.js
+
+if (powerup === 'shield'){
+      if (this.tick > 5) {
+        ctx.strokeStyle = "#f20cdf";
+        this.tick = 0;
+      } else {
+        ctx.strokeStyle = "#0fe80b";
+      }
+      ctx.lineWidth = 5;
+      
+      ctx.arc(this.pos[0] + 19, this.pos[1] + 19, 30, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+```
 
 ## Future Features 
 * Add more power-up options and some hindering power-downs.
