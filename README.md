@@ -110,6 +110,18 @@ mute.addEventListener('click', () => {
   });
 ```
 
+## Power-Ups
+Power-ups were initially meant to be a bonus feature that would be implemented once the other
+features were completed. Due to the timeline that I had laid out and stuck to, I was able to get 
+my other work done early and implement a shield power-up.
+
+The shield power-ups creates a new dynamic to the game and allows a player to be more reckless
+and try harder to get a better score. 
+
+Rendering a shield animation also adds more diversity to the game and an extra style element
+
+
+
 ## Future Features 
 * Add more power-up options and some hindering power-downs.
 * Add a velocity for smoother contol of player avatar.
