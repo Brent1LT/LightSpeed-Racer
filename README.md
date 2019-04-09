@@ -123,7 +123,7 @@ Rendering a shield animation also adds more diversity to the game and an extra s
 ![Shield Image](https://github.com/Brent1LT/LightSpeed-Racer/blob/master/app/assets/shield.png)
 
 
-If player is collided with a Shield instance, it is logged and rendered around the player. When collided with an object in the Obstacle class, the Shield power-up is used and the player is protected against 1 Obstacle collision
+If player is collided with a Shield instance, it is stored in a class property and rendered around the player. When collided with an object in the Obstacle class, the Shield power-up is used and the player is protected against 1 Obstacle collision.
 ```
 //game.js
 
