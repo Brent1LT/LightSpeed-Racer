@@ -8,10 +8,11 @@ body {
 }
 
 .title{
-  font-size: 40px;
+  font-size: 36px;
   color: gold;
-  width: 24%;
-  margin: auto;
+  text-align: center;
+  /* width: 24%; */
+  /* margin: auto; */
   font-family: 'Courier', Courier, monospace;
   margin-bottom: 15px;
   letter-spacing: 1.5px;
