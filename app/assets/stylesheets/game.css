@@ -2,13 +2,18 @@ body {
   background: black;
 }
 
+.full-screen{
+  color: red;
+  font-size: 30px;
+
+}
+
 .title{
   font-size: 40px;
   color: gold;
   width: 24%;
   margin: auto;
   margin-bottom: 15px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: 1.5px;
 }
 
@@ -40,20 +45,20 @@ body {
   color: white;
   text-align: center;
   padding-top: 2%;
-  font-size: 40px;
+  font-size: 30px;
   width: 30%;
 }
 
 .info-container{
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 .instructions{
   color: white;
   text-align: center;
   padding-top: 40px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .coin-photo{
@@ -61,10 +66,10 @@ body {
 }
 
 .score{
-  font-size: 40px;
+  font-size: 30px;
   color: gold;
   position: absolute;
-  top: 6%;
+  top: 7%;
   left: 62%;
 }
 
@@ -76,7 +81,6 @@ body {
   color: rgb(255, 136, 0);
   font-size: 40px;
   width: 30%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: none;
 }
 
