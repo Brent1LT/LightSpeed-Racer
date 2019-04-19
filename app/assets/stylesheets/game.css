@@ -11,7 +11,7 @@ body {
   font-size: 36px;
   color: gold;
   text-align: center;
-  /* width: 24%; */
+  /* width: 100%; */
   /* margin: auto; */
   font-family: 'Courier', Courier, monospace;
   margin-bottom: 15px;
@@ -85,6 +85,7 @@ body {
   font-size: 40px;
   width: 30%;
   display: none;
+  font-family: 'Courier', Courier, monospace;
 }
 
 .gameover-text{
