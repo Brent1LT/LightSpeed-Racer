@@ -114,7 +114,7 @@ class Game{
       this.createCoin();
     }
 
-    if(Math.random() > 0.999){
+    if(Math.random() > 0.995){
       this.createPowerup();
     }
   }
