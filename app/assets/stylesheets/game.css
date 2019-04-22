@@ -5,6 +5,7 @@ body {
 .full-screen{
   color: red;
   font-size: 30px;
+  padding-top: 10px;
 }
 
 .title{
