@@ -23,16 +23,19 @@ body {
   color: red;
   font-size: 30px;
   cursor: pointer;
+  display: flex;
 }
 
 .mute{
   color: white;
   font-size: 30px;
   cursor: pointer;
+  display: flex;
+
 }
 
 .game-container{
-  width: 50%;
+  width: 63%;
   margin: auto;
 }
 
@@ -72,8 +75,8 @@ body {
   font-size: 30px;
   color: gold;
   position: absolute;
-  top: 7%;
-  left: 62%;
+  top: 6%;
+  left: 55%;
   font-family: 'Courier', Courier, monospace;
 }
 
