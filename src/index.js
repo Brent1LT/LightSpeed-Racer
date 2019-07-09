@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lightspeed.start();
   };
 
-  // lightspeed.start();
 
   mute.addEventListener('click', () => {
     mute.classList.toggle('mute');
@@ -40,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-  window.addEventListener("keypress", (e) => {
-    if (e.charCode === 13) {
-      lightspeed.pause(audio);
-      }
-  });
+  // redundant code
+  // window.addEventListener("keypress", (e) => {
+  //   if (e.charCode === 13) {
+  //     lightspeed.pause(audio);
+  //     }
+  // });
 });
