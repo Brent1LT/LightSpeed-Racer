@@ -9,11 +9,6 @@ class Obstacle extends MovingObject {
     this.tick = 0;
   }
 
-  move(x){
-    if (this.pos > 900) this.remove();
-    this.pos[1] += x;
-  }
-
   draw(ctx){
     this.tick += 1;
     if (this.tick <= 20){

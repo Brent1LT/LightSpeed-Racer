@@ -8,11 +8,6 @@ class Coin extends MovingObject{
     this.width = 30;
   }
 
-  move(x) {
-    if (this.pos > 900) this.remove();
-    this.pos[1] += x;
-  }
-
   draw(ctx){
     ctx.fillStyle = this.color;
     ctx.beginPath();

@@ -39,10 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // redundant code
-  // window.addEventListener("keypress", (e) => {
-  //   if (e.charCode === 13) {
-  //     lightspeed.pause(audio);
-  //     }
-  // });
+  window.addEventListener("keypress", (e) => {
+    if (e.charCode === 13) {
+      lightspeed.pause(audio);
+    }
+  });
 });
